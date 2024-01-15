@@ -20,19 +20,21 @@ OBJS_DIR	=	obj/
 
 INCL_DIR	=	inc/
 
+MLX_DIR		=	mlx/
+
 # FILES ========================================================================
 
-NAME		=	so_long
+NAME_		=	so_long
 
 NAME_B		=	so_long_bonus
 
 LIBFT		=	$(LIBFT_DIR)libft.a
 
-SRCS		=	so_long.c init.c utils.c map_check_1.c map_check_2.c map_init.c map_utils.c
+SRCS_		=	so_long.c init.c utils.c map_check_1.c map_check_2.c map_init.c map_utils.c
 
 SRCS_B		=	so_long_bonus.c init_bonus_1.c init_bonus_2.c utils_bonus_1.c utils_bonus_2.c draw_bonus.c patrol_bonus.c clock_bonus.c map_check_1_bonus.c map_check_2_bonus.c map_init.c map_utils.c destroy_bonus.c
 
-OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
+OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS_:.c=.o))
 
 OBJS_B		=	$(addprefix $(OBJS_DIR), $(SRCS_B:.c=.o))
 
@@ -55,34 +57,37 @@ NORM		=	norminette $(SRCS_DIR) $(INCL_DIR)
 # RULES ========================================================================
 
 all:
+	@$(MAKE) --no-print-directory -C $(MLX_DIR)
 	@echo "\n${BIBlue}Checking Norminette...${NC}"
 	@$(NORM) | grep -q Error && $(NORM) | grep Error || echo "\n${BIGreen}Norminette OK !${NC}"
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR)
 	@mkdir -p $(OBJS_DIR)
 	@echo "\n${BIBlue}Compilation of project source files...${NC}"
-	@$(MAKE) --no-print-directory $(NAME)
+	@$(MAKE) --no-print-directory $(NAME_)
 	@echo "\n${BIGreen}Project Ready !${NC}\n"
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME_): $(OBJS) $(LIBFT)
 	@echo "\n${BICyan}Creating the executable...${NC}"
-	$(CC) $(CC_FLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME) 
+	$(CC) $(CC_FLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME_) 
 	
 bonus:
-	@$(MAKE) --no-print-directory NAME="$(NAME_B)" SRCS="$(SRCS_B)"
+	@$(MAKE) --no-print-directory NAME_="$(NAME_B)" SRCS_="$(SRCS_B)"
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(INCL_DIR) Makefile
 	$(CC) $(CC_FLAGS) -c $< -o $@ $(MLX_INCL)
 
 clean:
+	@$(MAKE) --no-print-directory -C $(MLX_DIR) clean
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) clean
 	@echo "\n${BIRed}Project binary deletion...${NC}"
 	rm -rf $(OBJS_DIR)
 
 fclean:
+	@$(MAKE) --no-print-directory -C $(MLX_DIR) clean
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) fclean
 	@echo "\n${BIRed}Project deletion...${NC}"
 	rm -rf $(OBJS_DIR)
-	rm -f $(NAME) $(NAME_B)
+	rm -f $(NAME_) $(NAME_B)
 
 re: fclean all
 
