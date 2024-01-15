@@ -42,6 +42,7 @@ void	updated_patrol(t_data *data)
 		}
 		j = -1;
 	}
+	data->ptrl.state *= -1;
 }
 
 void	update(t_data *data)
@@ -65,6 +66,8 @@ void	update(t_data *data)
 		}
 		j = -1;
 	}
+	data->coll.state *= -1;
+	data->exit.state *= -1;
 	updated_patrol(data);
 }
 

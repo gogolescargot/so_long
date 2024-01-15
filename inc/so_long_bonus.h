@@ -187,6 +187,7 @@ bool	check_map_extension(char *file, char *extension);
 char	*get_str_map(char *file);
 void	error_map(t_map map, int code);
 void	free_map(t_map map);
+void	replace_x(char **map);
 
 ssize_t	find_posx_hero(t_map map);
 ssize_t	find_posy_hero(t_map map);

@@ -30,7 +30,7 @@ NAME_B		=	so_long_bonus
 
 LIBFT		=	$(LIBFT_DIR)libft.a
 
-SRCS_		=	so_long.c init.c utils.c map_check_1.c map_check_2.c map_init.c map_utils.c
+SRCS_		=	so_long.c init.c utils_1.c utils_2.c map_check_1.c map_check_2.c map_init.c map_utils.c
 
 SRCS_B		=	so_long_bonus.c init_bonus_1.c init_bonus_2.c utils_bonus_1.c utils_bonus_2.c draw_bonus.c patrol_bonus.c clock_bonus.c map_check_1_bonus.c map_check_2_bonus.c map_init.c map_utils.c destroy_bonus.c
 

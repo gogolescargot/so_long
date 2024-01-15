@@ -30,9 +30,9 @@ bool	exit_reachable(char **map, ssize_t x, ssize_t y)
 
 bool	collectible_reachable(char **map, ssize_t x, ssize_t y)
 {
-	if (map[x][y] == 'x')
+	if (ft_strchr("xE", map[x][y]))
 		return (true);
-	if (ft_strchr("0CPx", map[x][y]))
+	if (ft_strchr("0CP", map[x][y]))
 	{
 		map[x][y] = 'X';
 		if (collectible_reachable(map, x + 1, y)
@@ -42,24 +42,6 @@ bool	collectible_reachable(char **map, ssize_t x, ssize_t y)
 			return (true);
 	}
 	return (false);
-}
-
-void	replace_x(char **map)
-{
-	ssize_t	i;
-	ssize_t	j;
-
-	i = -1;
-	j = -1;
-	while (map[++i])
-	{
-		while (map[i][++j])
-		{
-			if (map[i][j] == 'X')
-				map[i][j] = 'x';
-		}
-		j = -1;
-	}
 }
 
 bool	all_collectibles_reachable(char **map, ssize_t i, ssize_t j)
@@ -72,7 +54,7 @@ bool	all_collectibles_reachable(char **map, ssize_t i, ssize_t j)
 		{
 			if (map[i][j] == 'C' && !collectible_reachable(map, i, j))
 				return (false);
-			else
+			else if (map[i][j] == 'C')
 				replace_x(map);
 		}
 		j = -1;

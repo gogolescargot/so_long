@@ -90,3 +90,21 @@ int	check_move(int keycode, t_data *data)
 		return (1);
 	return (0);
 }
+
+void	replace_x(char **map)
+{
+	ssize_t	i;
+	ssize_t	j;
+
+	i = -1;
+	j = -1;
+	while (map[++i])
+	{
+		while (map[i][++j])
+		{
+			if (map[i][j] == 'X')
+				map[i][j] = 'x';
+		}
+		j = -1;
+	}
+}

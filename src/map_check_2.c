@@ -18,7 +18,7 @@ bool	exit_reachable(char **map, ssize_t x, ssize_t y)
 		return (true);
 	if (ft_strchr("0CP", map[x][y]))
 	{
-		map[x][y] = 'v';
+		map[x][y] = 'x';
 		if (exit_reachable(map, x + 1, y)
 			|| exit_reachable(map, x - 1, y)
 			|| exit_reachable(map, x, y + 1)
@@ -30,13 +30,14 @@ bool	exit_reachable(char **map, ssize_t x, ssize_t y)
 
 bool	collectible_reachable(char **map, ssize_t x, ssize_t y)
 {
-	if (map[x][y] == 'v')
+	if (ft_strchr("xXE", map[x][y]))
 		return (true);
 	if (ft_strchr("0CP", map[x][y]))
 	{
-		map[x][y] = 'V';
+		map[x][y] = 'X';
 		if (collectible_reachable(map, x + 1, y)
 			|| collectible_reachable(map, x - 1, y)
+			|| collectible_reachable(map, x, y + 1)
 			|| collectible_reachable(map, x, y - 1))
 			return (true);
 	}

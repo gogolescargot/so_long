@@ -34,7 +34,6 @@ void	draw_patrol(t_data *data, ssize_t i, ssize_t j, int direction)
 		temp = data->ptrl.r1;
 	mlx_put_image_to_window(data->ptr, data->win.ptr,
 		temp, CELL * j, CELL * i);
-	data->ptrl.state *= -1;
 }
 
 void	draw_hero(t_data *data)
@@ -74,7 +73,6 @@ void	draw_collectible(t_data *data, ssize_t i, ssize_t j)
 	else if (data->coll.state == -1)
 		mlx_put_image_to_window(data->ptr, data->win.ptr,
 			data->coll.i1, CELL * j, CELL * i);
-	data->coll.state *= -1;
 }
 
 void	draw_exit(t_data *data, ssize_t i, ssize_t j)
@@ -87,7 +85,6 @@ void	draw_exit(t_data *data, ssize_t i, ssize_t j)
 	else if (data->exit.state == -1)
 		mlx_put_image_to_window(data->ptr, data->win.ptr,
 			data->exit.i1, CELL * j, CELL * i);
-	data->exit.state *= -1;
 }
 
 void	draw_map(t_data data)
