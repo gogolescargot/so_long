@@ -68,6 +68,8 @@ bool	check_map_validate(char *str_map)
 	i = -1;
 	j = -1;
 	temp_map = ft_split(str_map, '\n');
+	if (!temp_map)
+		return (false);
 	while (temp_map[++i])
 	{
 		while (temp_map[i][++j])
