@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 
 bool	exit_reachable(char **map, ssize_t x, ssize_t y)
 {
@@ -54,7 +54,7 @@ bool	all_collectibles_reachable(char **map, ssize_t i, ssize_t j)
 		{
 			if (map[i][j] == 'C' && !collectible_reachable(map, i, j))
 				return (false);
-			else if (map[i][j] == 'C')
+			else
 				replace_x(map);
 		}
 		j = -1;
