@@ -30,7 +30,7 @@ bool	exit_reachable(char **map, ssize_t x, ssize_t y)
 
 bool	collectible_reachable(char **map, ssize_t x, ssize_t y)
 {
-	if (ft_strchr("xE", map[x][y]))
+	if (ft_strchr("x", map[x][y]))
 		return (true);
 	if (ft_strchr("0CP", map[x][y]))
 	{
