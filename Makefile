@@ -38,6 +38,8 @@ OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS_:.c=.o))
 
 OBJS_B		=	$(addprefix $(OBJS_DIR), $(SRCS_B:.c=.o))
 
+INCL		=	$(INCL_DIR)so_long.h $(INCL_DIR)so_long_bonus.h
+
 MLX_INCL	=	-I/usr/include -Imlx
 
 MLX_FLAGS	=	-Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
@@ -73,7 +75,7 @@ $(NAME_): $(OBJS) $(LIBFT)
 bonus:
 	@$(MAKE) --no-print-directory NAME_="$(NAME_B)" SRCS_="$(SRCS_B)"
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(INCL_DIR) Makefile
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(INCL) Makefile
 	$(CC) $(CC_FLAGS) -c $< -o $@ $(MLX_INCL)
 
 clean:
