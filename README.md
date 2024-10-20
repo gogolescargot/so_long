@@ -25,6 +25,6 @@ make fclean
 # Full Clean and Recompile
 make re
 
-# Start (1 parameter, .ber file)
+# Start (1 argument, .ber file)
 ./so_long map.ber
 ```
