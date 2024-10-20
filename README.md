@@ -16,6 +16,9 @@ and some other very basic gameplay elements.
 # Compile
 make
 
+# Compile with bonus features
+make bonus
+
 # Delete Objects files
 make clean
 
