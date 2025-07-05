@@ -86,6 +86,7 @@ void	draw_map_utils(t_data data, ssize_t i, ssize_t j)
 {
 	void	*temp;
 
+	temp = NULL;
 	if (data.map.map[i][j] == '1' && !draw_map_cliff(data, i, j))
 		temp = data.bord.ptr;
 	else if (data.map.map[i][j] == '1')

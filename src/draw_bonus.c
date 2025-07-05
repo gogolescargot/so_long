@@ -16,6 +16,7 @@ void	draw_patrol(t_data *data, ssize_t i, ssize_t j, int direction)
 {
 	void	*temp;
 
+	temp = NULL;
 	if (direction == 1 && data->ptrl.state == 1)
 		temp = data->ptrl.u1;
 	else if (direction == 2 && data->ptrl.state == 1)
@@ -40,6 +41,7 @@ void	draw_hero(t_data *data)
 {
 	void	*temp;
 
+	temp = NULL;
 	mlx_put_image_to_window(data->ptr, data->win.ptr,
 		data->empt.ptr, data->hero.pos_x, data->hero.pos_y);
 	if (data->hero.state == 1)
